@@ -24,3 +24,10 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+
+        <%- if devise_mapping.omniauthable? %>
+                      <%- resource_class.omniauth_providers.each do |provider| %>
+                                        <%= link_to "<i class='fa fa-facebook-square'></i> | Entre aqui".html_safe, omniauth_authorize_path(resource_name, provider),:class => "btn btn-default btn-block btn-xl btn-login" %>
+                                                        <br />
+                                                                    <% end -%>
+                                                                            <% end -%>

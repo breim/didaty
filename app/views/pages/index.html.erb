@@ -1,2 +1,8 @@
 <h1>Pages#index</h1>
 <p>Find me in app/views/pages/index.html.erb</p>
+
+<% if current_user.present? %>
+    <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+<% else %>
+	<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+<% end %>
