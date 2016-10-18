@@ -22,3 +22,8 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Test
+group :development, :test do
+  gem 'rspec-rails'
+end
