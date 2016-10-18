@@ -1,0 +1,24 @@
+{
+  "name": "didaty",
+  "authors": [
+    "Henrique Breim <breim@protonmail.ch>"
+  ],
+  "description": "courses plataform",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "latest",
+    "components-font-awesome": "latest",
+    "font-awesome": "latest"
+  }
+}
