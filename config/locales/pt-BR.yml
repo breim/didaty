@@ -19,10 +19,13 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+pt-BR:
   navbar:
     instructor: 'Instrutor'
-    create_course: 'Create Course'
+    create_course: 'Criar um Curso'
+    search: 'Buscar'
+    login: 'Entrar'
+    logout: 'Sair'
   activerecord:
     models:
       course:
