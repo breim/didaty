@@ -28,6 +28,7 @@ gem 'omniauth-facebook'
 gem 'figaro'
 gem 'simple_form'
 gem 'responders'
+gem 'paperclip'
 
 # Test
 group :development, :test do
