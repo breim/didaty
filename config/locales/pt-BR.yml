@@ -52,16 +52,18 @@ pt-BR:
     Nome teste: 'xxxxxx'
     Nome koko: 'yyyyyyy'
   views:
-    not_loged_or_not_woner: 'Você não está logado ou não é dono do cadastro'
+    not_loged_or_not_owner: 'Você não está logado ou não é dono do cadastro'
     course:
-      new: 'Novo curso'
-      edit: 'Editar curso'
+      new: 'Novo Curso'
+      edit: 'Editar Curso'
       geral_infos: 'Informações gerais'
       add_image: 'Imagem do curso'
       configuration: 'Configuração'
       destroy_msg: 'Depois de excluir um repositório, não há como voltar atrás. Por favor, tenha certeza.'
       destroy: 'Deletar curso'
       submit: 'Salvando...'
+      active: 'Publicado'
+      desactived: 'Rascunho'
       placeholder:
         name: 'ex: Aprenda a se maquiar'
         subtitle: 'Qual tipo de maquiagem usar'
