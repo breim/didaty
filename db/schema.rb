@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019073103) do
+ActiveRecord::Schema.define(version: 20161019121347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,25 @@ ActiveRecord::Schema.define(version: 20161019073103) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "concepts", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "payment",    default: false
+    t.integer  "fiat",       default: 0
+    t.integer  "course_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["course_id"], name: "index_concepts_on_course_id", using: :btree
+  end
+
+  create_table "contents", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "fiat",       default: 0
+    t.integer  "concept_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["concept_id"], name: "index_contents_on_concept_id", using: :btree
   end
 
   create_table "courses", force: :cascade do |t|
@@ -76,6 +95,8 @@ ActiveRecord::Schema.define(version: 20161019073103) do
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
   end
 
+  add_foreign_key "concepts", "courses"
+  add_foreign_key "contents", "concepts"
   add_foreign_key "courses", "categories"
   add_foreign_key "courses", "users"
 end

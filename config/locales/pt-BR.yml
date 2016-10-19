@@ -59,6 +59,7 @@ pt-BR:
       geral_infos: 'Informações gerais'
       add_image: 'Imagem do curso'
       configuration: 'Configuração'
+      concepts: 'Conteúdo do curso'
       destroy_msg: 'Depois de excluir um repositório, não há como voltar atrás. Por favor, tenha certeza.'
       destroy: 'Deletar curso'
       submit: 'Salvando...'

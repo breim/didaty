@@ -1,6 +1,13 @@
 class Course < ApplicationRecord
   belongs_to :category
   belongs_to :user
+  has_many :concepts, dependent: :destroy
+  accepts_nested_attributes_for :concepts, reject_if: :all_blank, allow_destroy: true
+  
+  has_many :contents, through: :concepts
+  accepts_nested_attributes_for :contents, :reject_if => :all_blank, :allow_destroy => true
+
+
   validates :name, :subtitle, :category_id, :user_id, presence: true
   
   # PaperClip + ftp

@@ -10,9 +10,10 @@
 
   <% if action_name == 'edit' %>
   <ul class="list-group">
-    <li class="list-group-item"><%= link_to "<i class='fa fa-list-ul'></i> ".html_safe + t('views.course.geral_infos'), edit_course_path(@course) %></li>
-    <li class="list-group-item"><%= link_to "<i class='fa fa-image'></i> ".html_safe + t('views.course.add_image'), edit_course_path(@course, image: true) %></li>
-    <li class="list-group-item"><%= link_to "<i class='fa fa-gear'></i> ".html_safe + t('views.course.configuration'), edit_course_path(@course, options: true) %></li>
+    <%= link_to "<i class='fa fa-home'></i> ".html_safe + t('views.course.geral_infos'), edit_course_path(@course), class: 'list-group-item' %>
+    <%= link_to "<i class='fa fa-image'></i> ".html_safe + t('views.course.add_image'), edit_course_path(@course, image: true), class: 'list-group-item' %>
+    <%= link_to "<i class='fa fa-list-ul'></i> ".html_safe + t('views.course.concepts'), edit_course_path(@course, concepts: true), class: 'list-group-item' %>
+    <%= link_to "<i class='fa fa-gear'></i> ".html_safe + t('views.course.configuration'), edit_course_path(@course, options: true), class: 'list-group-item' %>
   </ul>
   <% end %>
 
@@ -31,7 +32,7 @@
   </div>
   <% end %>
 
-  <% unless params[:options].present? or params[:image].present? %>
+  <% unless params[:options].present? or params[:image].present? or params[:concepts].present? %>
   <div class='row'>
     <div class='col-sm-6'>
       <%= f.input :name, placeholder: t('views.course.placeholder.name') %>
@@ -69,6 +70,18 @@
   <% if params[:options].present? %>
     <p class="text text-muted"><%= t('views.course.destroy_msg') %></p>
     <%= link_to t('views.course.destroy'), course_path(@course), class: 'btn btn-danger btn-fill', method: :delete %>
+  <% end %>
+
+  <% if params[:concepts].present? %>
+    <%= f.input :name, as: :hidden %>
+    <div id="concepts">
+      <%= f.simple_fields_for :concepts do |concept| %>
+        <%= render 'concept_fields', :f => concept %>
+      <% end %>
+      <div class="form-group">
+        <%= link_to_add_association "<i class='fa fa-plus'></i> Adicionar conceito".html_safe, f, :concepts, class: 'btn btn-primary btn-xs' %>
+      </div>
+    </div>
   <% end %>
 
   <div class="actions">
