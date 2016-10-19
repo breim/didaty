@@ -23,11 +23,20 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem 'devise'
+gem 'omniauth-facebook'
+gem 'figaro'
+
 # Test
 group :development, :test do
   gem 'rspec-rails'
 end
 
-gem 'devise'
-gem 'omniauth-facebook'
-gem 'figaro'
+group :test do
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
+  gem 'coveralls', require: false
+  gem 'rails-controller-testing'
+end
