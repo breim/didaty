@@ -26,6 +26,10 @@ pt-BR:
     search: 'Buscar'
     login: 'Entrar'
     logout: 'Sair'
+    my_courses: 'Meus cursos'
+  links:
+    edit: 'Editar'
+    back: 'Voltar'
   activerecord:
     models:
       course:
@@ -33,4 +37,32 @@ pt-BR:
         two: 'Cursos'
     attributes:
       course:
-        name: "Nome do curso"
+        name: 'Nome'
+        subtitle: 'Subtítulo'
+        description: 'Descrição do curso'
+        category_id: 'Categoria'
+        price: 'Preço do curso'
+        image: 'Imagem do curso'
+  helpers:
+    submit:
+      course:
+        create: 'Criar %{model}'
+        update: 'Atualizar %{model}'
+  categories:
+    Nome teste: 'xxxxxx'
+    Nome koko: 'yyyyyyy'
+  views:
+    not_loged_or_not_woner: 'Você não está logado ou não é dono do cadastro'
+    course:
+      new: 'Novo curso'
+      edit: 'Editar curso'
+      geral_infos: 'Informações gerais'
+      add_image: 'Imagem do curso'
+      configuration: 'Configuração'
+      destroy_msg: 'Depois de excluir um repositório, não há como voltar atrás. Por favor, tenha certeza.'
+      destroy: 'Deletar curso'
+      submit: 'Salvando...'
+      placeholder:
+        name: 'ex: Aprenda a se maquiar'
+        subtitle: 'Qual tipo de maquiagem usar'
+        description: 'Destaque o que o curso abrange, como é ministrado, os benefícios dele e por que os alunos devem se matricular. Aprenda as melhores práticas.'
