@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @course.name %>
@@ -22,7 +21,7 @@
 
 <p>
   <strong>Public:</strong>
-  <%= @course.public %>
+  <%= @course.active %>
 </p>
 
 <p>
@@ -40,5 +39,5 @@
   <%= @course.user %>
 </p>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<%= link_to t('links.edit'), edit_course_path(@course) %> |
+<%= link_to t('links.back'), courses_path %>

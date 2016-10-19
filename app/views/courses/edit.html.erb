@@ -1,6 +1,4 @@
-<h1>Editing Course</h1>
-
+<%= link_to t('links.back'), courses_path, class: 'pull-right btn btn-default' %>
+<h2><%= t('views.course.edit') %></h2>
+<hr/>
 <%= render 'form', course: @course %>
-
-<%= link_to 'Show', @course %> |
-<%= link_to 'Back', courses_path %>

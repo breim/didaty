@@ -1,26 +1,49 @@
-<%= simple_form_for(@course, html: { class: 'form-horizontal' }) do |f| %>
-  <% if course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+<div class="col-sm-3">
+  <div class="alert alert-success">
+    <strong>Info!</strong> Indicates a neutral informative change or action.
+    Indicates a neutral informative change or action.
+    Indicates a neutral informative change or action.
+    Indicates a neutral informative change or action.
+    Indicates a neutral informative change or action.
+    Indicates a neutral informative change or action.
+  </div>
 
-      <ul>
-      <% course.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <% if action_name == 'edit' %>
+  <ul class="list-group">
+    <li class="list-group-item"><%= link_to "<i class='fa fa-list-ul'></i> ".html_safe + t('views.course.geral_infos'), edit_course_path(@course) %></li>
+    <li class="list-group-item"><%= link_to "<i class='fa fa-image'></i> ".html_safe + t('views.course.add_image'), edit_course_path(@course, image: true) %></li>
+    <li class="list-group-item"><%= link_to "<i class='fa fa-gear'></i> ".html_safe + t('views.course.configuration'), edit_course_path(@course, options: true) %></li>
+  </ul>
   <% end %>
 
-  <div class="field">
-    <%= f.input :name %>
+</div>
+
+<div class="col-sm-9">
+  <%= simple_form_for(@course, html: { class: '' }) do |f| %>
+  <% if course.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+    <ul>
+      <% course.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <% unless params[:options].present? or params[:image].present? %>
+  <div class='row'>
+    <div class='col-sm-6'>
+      <%= f.input :name, placeholder: t('views.course.placeholder.name') %>
+    </div>
+
+    <div class='col-sm-6'>
+      <%= f.input :subtitle, placeholder: t('views.course.placeholder.subtitle') %>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.input :subtitle %>
-  </div>
-
-  <div class="field">
-    <%= f.input :description, as: :text %>
+    <%= f.input :description, as: :text, input_html: {rows: 5}, placeholder: t('views.course.placeholder.description') %>
   </div>
 
   <div class="field">
@@ -28,22 +51,30 @@
   </div>
 
   <div class="field">
-    <%= f.input :active %>
+    <%= f.input :category_id, collection: Category.all, label_method: :translated_name, value_method: :id, include_blank: false, selected: @course.category_id %>
   </div>
+  <% end %>
 
-  <div class="field">
-    <%= f.input :deleted %>
-  </div>
+  <% if params[:image].present? %>
+    <div class='row'>
+      <div class="col-sm-3">
+        <%= image_tag @course.image.url(:medium), class: 'img-responsive thumbnail' %>
+      </div>
+      <div class="col-sm-6">
+       <%= f.input :image, as: :file %>
+      </div>
+    </div>
+  <% end %>
 
-  <div class="field">
-    <%= f.input :category_id %>
-  </div>
-
-  <div class="field">
-    <%= f.input :user_id %>
-  </div>
+  <% if params[:options].present? %>
+    <p class="text text-muted"><%= t('views.course.destroy_msg') %></p>
+    <%= link_to t('views.course.destroy'), course_path(@course), class: 'btn btn-danger btn-fill', method: :delete %>
+  <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary btn-fill pull-right', data: {disable_with: t('views.course.submit')}  unless params[:options].present? %>
   </div>
 <% end %>
+</div>
+
+<%# javascript_include_tag 'courses', defer: 'defer' %>

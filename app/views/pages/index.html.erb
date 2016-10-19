@@ -1,6 +1,33 @@
 <h1>Pages#index</h1>
+<h2>Pages#index</h2>
+<h3>Pages#index</h3>
+<h4>Pages#index</h4>
+<h5>Pages#index</h5>
+<h6>Pages#index</h6>
 <% if current_user.present? %>
 Logado como <%= current_user.name %>, <%= link_to "Sair", destroy_user_session_path, method: :delete %>
 <% else %>
 <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: 'button' %>
 <% end 	%>
+
+
+<!-- Standard button -->
+<button type="button" class="btn btn-default">Default</button>
+
+<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+<button type="button" class="btn btn-primary">Primary</button>
+
+<!-- Indicates a successful or positive action -->
+<button type="button" class="btn btn-success">Success</button>
+
+<!-- Contextual button for informational alert messages -->
+<button type="button" class="btn btn-info">Info</button>
+
+<!-- Indicates caution should be taken with this action -->
+<button type="button" class="btn btn-warning">Warning</button>
+
+<!-- Indicates a dangerous or potentially negative action -->
+<button type="button" class="btn btn-danger">Danger</button>
+
+<!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+<button type="button" class="btn btn-link">Link</button>
