@@ -21,3 +21,4 @@
 
 # Ignore bower assets
 /vendor
+/public/courses
