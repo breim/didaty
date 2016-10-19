@@ -29,6 +29,7 @@ gem 'figaro'
 gem 'simple_form'
 gem 'responders'
 gem 'paperclip'
+gem 'cocoon'
 
 # Test
 group :development, :test do
