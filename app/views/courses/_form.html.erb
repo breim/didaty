@@ -1,4 +1,4 @@
-<%= form_for(course) do |f| %>
+<%= simple_form_for(@course, html: { class: 'form-horizontal' }) do |f| %>
   <% if course.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
@@ -12,43 +12,35 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.input :name %>
   </div>
 
   <div class="field">
-    <%= f.label :subtitle %>
-    <%= f.text_field :subtitle %>
+    <%= f.input :subtitle %>
   </div>
 
   <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.input :description, as: :text %>
   </div>
 
   <div class="field">
-    <%= f.label :price %>
-    <%= f.text_field :price %>
+    <%= f.input :price %>
   </div>
 
   <div class="field">
-    <%= f.label :public %>
-    <%= f.check_box :public %>
+    <%= f.input :active %>
   </div>
 
   <div class="field">
-    <%= f.label :deleted %>
-    <%= f.check_box :deleted %>
+    <%= f.input :deleted %>
   </div>
 
   <div class="field">
-    <%= f.label :category_id %>
-    <%= f.text_field :category_id %>
+    <%= f.input :category_id %>
   </div>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+    <%= f.input :user_id %>
   </div>
 
   <div class="actions">

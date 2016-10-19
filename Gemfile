@@ -26,6 +26,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'simple_form'
 
 # Test
 group :development, :test do
