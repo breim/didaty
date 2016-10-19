@@ -27,6 +27,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
 gem 'simple_form'
+gem 'responders'
 
 # Test
 group :development, :test do
