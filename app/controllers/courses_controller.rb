@@ -71,7 +71,7 @@ class CoursesController < ApplicationController
 
     def validates_user
       unless current_user.present? and @course.user_id == current_user.id
-        redirect_to courses_path; flash[:alert] = 'views.not_loged_or_not_woner'
+        redirect_to courses_path; flash[:alert] = 'views.not_loged_or_not_owner'
       end
     end
 end
