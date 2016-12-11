@@ -13,6 +13,7 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @concepts = Concept.where(course_id: @course.id).order(fiat: :asc)
   end
 
   # GET /courses/new

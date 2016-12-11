@@ -39,5 +39,10 @@
   <%= @course.user %>
 </p>
 
+<% @concepts.each do |concept|  %>
+  <%= "#{concept.id}" + ' ' + "#{concept.name}'"  %><br/>
+  <%= concept.fiat %>
+<% end %>
+
 <%= link_to t('links.edit'), edit_course_path(@course) %> |
 <%= link_to t('links.back'), courses_path %>

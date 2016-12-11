@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20161019121347) do
   create_table "concepts", force: :cascade do |t|
     t.string   "name"
     t.boolean  "payment",    default: false
-    t.integer  "fiat",       default: 0
+    t.integer  "fiat",       default: 999
     t.integer  "course_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 20161019121347) do
 
   create_table "contents", force: :cascade do |t|
     t.string   "name"
-    t.integer  "fiat",       default: 0
+    t.integer  "fiat",       default: 999
     t.integer  "concept_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["concept_id"], name: "index_contents_on_concept_id", using: :btree
   end
 
