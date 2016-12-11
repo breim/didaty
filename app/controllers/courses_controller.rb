@@ -1,13 +1,12 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_action :validates_user, only: [:edit, :update, :destroy]
-  
   respond_to :html
 
   # GET /courses
   # GET /courses.json
   def index
-     params[:teacher].present? ? 
+     params[:teacher].present? ?
      @courses = Course.all.where(deleted: false) : @courses = Course.all
   end
 
@@ -31,7 +30,7 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     @course.user_id = current_user.id
     @course.save
-    respond_with(@course, location: course_path(@course))
+    respond_with(@course, location: @course)
   end
 
   # PATCH/PUT /courses/1
