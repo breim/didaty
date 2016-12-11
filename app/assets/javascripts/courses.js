@@ -1,2 +1,36 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+function setContents(){
+	jQuery(".contents").on('cocoon:after-insert', function(e, insertedItem) {
+		console.log('hi');
+	});
+}
+
+function addItens(){
+	$(".grid, .subgrid").sortable({
+		tolerance: 'pointer',
+		revert: 'invalid',
+		placeholder: 'span2 well placeholder tile',
+		forceHelperSize: true
+	}).bind('sortupdate', function() {
+		$('.grid > .nested-fields').each(function(idx) {
+			var inputField = $(this).find('.course_concepts_fiat input');
+			console.log(inputField.val(idx)[0].value);
+		});
+		$('.subgrid > .nested-fields').each(function(idx) {
+			var inputField = $(this).find('.course_concepts_contents_fiat input');
+			console.log(inputField);
+		});
+	});
+};
+
+$( document ).ready(function() {
+	addItens();      
+	$('#concepts').on('cocoon:after-insert', function(e, insertedItem) {
+		addItens();
+		$( "[id^='concept-panel']" ).mouseover(function() {
+			$(this).css( 'cursor', 'move' );
+		});
+	});
+	$( "[id^='concept-panel']" ).mouseover(function() {
+		$(this).css( 'cursor', 'move' );
+	});
+});
