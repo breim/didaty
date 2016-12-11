@@ -1,7 +1,7 @@
 <div class="nested-fields">
-
     <div class="panel panel-primary">
-        <div class="panel-heading">
+        <div class="panel-heading" id="concept-panel">
+            <span id='sortable-icon'class="pull-right"><i class='fa fa-list-ol'></i></span>
             <h3 class="panel-title">Conceito</h3>
         </div>
         <div class="panel-body">
@@ -18,22 +18,23 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="field">
-                        <%= f.input :fiat %>
+                        <%= f.input :fiat, as: :hidden %>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <%= link_to_remove_association "<i class='fa fa-trash'></i>".html_safe, f, class: 'btn btn-danger btn-xs pull-right'%>
                 </div>
             </div>
-            <div id="contents">
-                <%= f.simple_fields_for :contents do |content| %>
-                    <%= render 'content_fields', f: content %>
-                <% end %>
-                <div class="form-group">
-                    <%= link_to_add_association "<i class='fa fa-plus'></i> Adicionar conteúdo".html_safe, f, :contents, class: 'btn btn-default btn-xs' %>
+            <div id="contents" class="contents">
+                <div class="subgrid">
+                    <%= f.simple_fields_for :contents, f.object.contents.order(fiat: :asc) do |content| %>
+                        <%= render 'content_fields', f: content %>
+                    <% end %>
+                    <div class="form-group">
+                        <%= link_to_add_association "<i class='fa fa-plus'></i> Adicionar conteúdo".html_safe, f, :contents, class: 'btn btn-default btn-xs' %>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>

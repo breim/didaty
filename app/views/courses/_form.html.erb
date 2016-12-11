@@ -73,15 +73,17 @@
   <% end %>
 
   <% if params[:concepts].present? %>
-    <%= f.input :name, as: :hidden %>
-    <div id="concepts">
-      <%= f.simple_fields_for :concepts do |concept| %>
-        <%= render 'concept_fields', :f => concept %>
+  <%= f.input :id, as: :hidden %>
+  <div id="concepts">
+    <div class="grid">
+      <%= f.simple_fields_for :concepts, @course.concepts.order(fiat: :asc) do |concept| %>
+        <%= render 'concept_fields', f: concept %>
       <% end %>
       <div class="form-group">
         <%= link_to_add_association "<i class='fa fa-plus'></i> Adicionar conceito".html_safe, f, :concepts, class: 'btn btn-primary btn-xs' %>
       </div>
     </div>
+  </div>
   <% end %>
 
   <div class="actions">
