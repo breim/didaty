@@ -8,12 +8,21 @@
                         <%= f.input :name %>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <div class="field">
                         <%= f.input :fiat %>
                     </div>
                 </div>
-                <div class="col-sm-4">
+
+                <div class="col-sm-3">
+                    <form action="/batman" class="dropzone" method="post">
+                      <div class="fallback">
+                        <input name="file" type="file" multiple />
+                      </div>
+                    </form>
+                </div>
+
+                <div class="col-sm-1">
                     <%= link_to_remove_association "<i class='fa fa-trash'></i>".html_safe, f, class: 'btn btn-danger btn-xs pull-right'%>
                 </div>
             </div>
