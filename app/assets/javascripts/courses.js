@@ -13,17 +13,17 @@ function addItens(){
 	}).bind('sortupdate', function() {
 		$('.grid > .nested-fields').each(function(idx) {
 			var inputField = $(this).find('.course_concepts_fiat input');
-			console.log(inputField.val(idx)[0].value);
+			inputField.val(idx)[0].value;
 		});
-		$('.subgrid > .nested-fields').each(function(idx) {
+		$('.subgrid .nested-fields').each(function(idx) {
 			var inputField = $(this).find('.course_concepts_contents_fiat input');
-			console.log(inputField);
+			inputField.val(idx)[0].value;
 		});
 	});
 };
 
 $( document ).ready(function() {
-	addItens();      
+	addItens();
 	$('#concepts').on('cocoon:after-insert', function(e, insertedItem) {
 		addItens();
 		$( "[id^='concept-panel']" ).mouseover(function() {
@@ -33,4 +33,8 @@ $( document ).ready(function() {
 	$( "[id^='concept-panel']" ).mouseover(function() {
 		$(this).css( 'cursor', 'move' );
 	});
+});
+
+$(document).ready(function () {
+	$(".dropzone").dropzone({ url: "http://localhost:3000/" });
 });
